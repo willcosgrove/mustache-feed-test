@@ -9,7 +9,7 @@ var template, feedData, renderedFeed;
 template = $("#feed-template").html();
 
 // Simulate call to remote server returning the feed as JSON data
-$.get("/js/fake-feed.json", function(data){
+$.get("js/fake-feed.json", function(data){
   feedData = data;
   renderFeed(); // Once data is received, render that feed!
 })

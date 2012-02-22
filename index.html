@@ -22,9 +22,6 @@
 	</style>
 	<link rel="stylesheet" href="css/bootstrap-responsive.css">
 	<link rel="stylesheet" href="css/style.css">
-
-	<script src="js/libs/modernizr-2.5-respond-1.1.0.min.js"></script>
-  <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
   <script type="template/mustache" id="feed-template">
     <h2>Feed</h2>
     <ul class="unstyled">
@@ -32,11 +29,9 @@
         <li>
           <article class="feed-item">
             <header>
-              <h3>{{title}}</h3>
-              <h6><a href="{{source}}">{{source}}</a></h6>
-              <time>{{timestamp}}</time>
+              <h3><a href="{{source}}">{{description}}</a></h3>
+              <time>{{published_at}}</time>
             </header>
-            {{body}}
           </article>
         </li>
       {{/items}}
@@ -80,13 +75,6 @@
       </footer>
 
     </div> <!-- /container -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
-
-<script src="js/libs/bootstrap/transition.js"></script>
-<script src="js/libs/bootstrap/collapse.js"></script>
-<script src="js/libs/mustache.js"></script>
-
 <script src="js/script.js"></script>
 </body>
 </html>

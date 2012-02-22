@@ -89,7 +89,7 @@ $(document).ready(function(){
 
   function renderFeed(){
     renderedFeed = Mustache.render(template, feedData);
-    $("#seccontentwrapper").html(renderedFeed); // Change this line to place where the rendered feed gets placed
+    $("#feed").html(renderedFeed); // Change this line to place where the rendered feed gets placed
   }
 
   // Call to remote server returning the feed as JSON data

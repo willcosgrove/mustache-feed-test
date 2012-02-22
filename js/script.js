@@ -11,21 +11,21 @@ var template, feedData, renderedFeed;
 template = $("#feed-template").html();
 
 // Call to remote server returning the feed as JSON data
-// $.getJSON("http://birdfeeder.herokuapp.com/feeds/1.json", function(data){
-//   feedData = data;
-//   renderFeed(); // Once data is received, render that feed!
-// });
+$.getJSON("http://birdfeeder.herokuapp.com/feeds/1.json?callback=?", function(data){
+  feedData = data;
+  renderFeed(); // Once data is received, render that feed!
+});
 
-$.ajax({
-  contentType: "application/json",
-  type: "GET",
-  dataType: "jsonp",
-  url: "http://birdfeeder.herokuapp.com/feeds/1.json",
-  success: function(data){
-    feedData = data;
-    renderFeed(); // Once data is received, render that feed!
-  }
-})
+// $.ajax({
+//   contentType: "application/json",
+//   type: "GET",
+//   dataType: "jsonp",
+//   url: "http://birdfeeder.herokuapp.com/feeds/1.json",
+//   success: function(data){
+//     feedData = data;
+//     renderFeed(); // Once data is received, render that feed!
+//   }
+// })
 
 function renderFeed(){
   renderedFeed = Mustache.render(template, feedData);

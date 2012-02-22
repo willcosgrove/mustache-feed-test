@@ -20,7 +20,6 @@ $.ajax({
   contentType: "application/json",
   type: "GET",
   dataType: "json",
-  cache: false,
   url: "http://birdfeeder.herokuapp.com/feeds/1.json",
   success: function(data){
     feedData = data;

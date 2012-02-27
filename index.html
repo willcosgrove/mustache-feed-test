@@ -37,6 +37,12 @@
         </li>
       {{/items}}
     </ul>
+    {{#previous_page_link}}
+      <a class="pagination" data-json-uri="{{previous_page_link}}">Previous Page</a>
+    {{/previous_page_link}}
+    {{#next_page_link}}
+      <a class="pagination" data-json-uri="{{next_page_link}}">Next Page</a>
+    {{/next_page_link}}
   </script>
 </head>
 <body>

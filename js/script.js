@@ -40,26 +40,33 @@ function render(template,view,partials){return compile(template)(view,partials);
 
 
 $(document).ready(function() {
+    $("a.pagination").live("click", function(){
+        fetchFeed($(this).data("json-uri"));
+    });
+
     // Set up variables, stupid javascript, I don't know why I'm not using coffeescript
-    var template, feedData, renderedFeed;
+    var template;
 
     // Read in the template from the HTML document
     template = $("#feed-template").html();
 
-    function renderFeed() {
-        renderedFeed = Mustache.render(template, feedData);
+    function renderFeed(feedData) {
+        var renderedFeed = Mustache.render(template, feedData);
         $("#feed").html(renderedFeed); // Change this line to place where the rendered feed gets placed
     }
 
     // Call to remote server returning the feed as JSON data
-    $.ajax({
+    function fetchFeed(uri) {
+        $.ajax({
         contentType: "application/json",
         type: "GET",
         dataType: "jsonp",
-        url: "http://birdfeeder.herokuapp.com/feeds/1.json",
+        url: uri,
         success: function(data) {
-            feedData = data;
-            renderFeed(); // Once data is received, render that feed!
+            renderFeed(data); // Once data is received, render that feed!
         }
     });
+    }
+
+    fetchFeed("http://birdfeeder.herokuapp.com/feeds/1.json");
 });
